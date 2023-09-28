@@ -1,7 +1,8 @@
-import { Text, View, Button} from "react-native";
+import { Text, View} from "react-native";
 
 import styles from '../../styles/itemStyle'
-import Field from "./Field";
+import Field from "./Field"
+import Button from './Button'
 import { useState } from "react";
 
 export default function Item ({ name, price, description }){
@@ -20,14 +21,14 @@ export default function Item ({ name, price, description }){
       <View>
         <View style={styles.value}>
           <Text style={styles.description}>Quantidade: </Text>
-          <Field value={amount} action={setAmount} />
+          <Field value={amount} action={setAmount} customStyles={styles.amount} />
         </View>
         <View style={styles.value}>
           <Text style={styles.description}>Preço: </Text>
           <Text style={styles.price}>0</Text>
         </View>
       </View>
-      <Button title="Adicionar" />
+      <Button value="Adicionar"></Button>
     </View>
     <View style={styles.divisor} />
 </>

@@ -2,6 +2,7 @@ import React from 'react'
 import { FlatList } from 'react-native'
 import ItemCart from '../../components/ItemCart'
 import Default from '../../components/Default'
+import StatusCart from '../../components/StatusCart'
 
 const services = [
   {
@@ -30,8 +31,11 @@ const services = [
 export default function Cart(){
   const totalItemsList = services.length - 1
 
+  const totalCart = services.reduce((sum, { price, amount}) => sum + ( price * amount) , 0)
+
   return(
     <Default>
+        <StatusCart total={totalCart} />
         <FlatList
           data={services}
           removeClippedSubviews={false}

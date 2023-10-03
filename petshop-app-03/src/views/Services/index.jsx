@@ -1,7 +1,6 @@
 import React from 'react'
 import { FlatList, SafeAreaView, StatusBar, KeyboardAvoidingView, Platform } from 'react-native'
 import Item from '../../components/Item'
-import Default from '../../components/Default'
 
 const services = [
   {
@@ -26,13 +25,13 @@ const services = [
 
 export default function Services(){
   return(
-    <Default>
+    <>
       <FlatList
         data={services}
         removeClippedSubviews={false}
         renderItem={({ item }) => <Item {...item}  /> }
         keyExtractor={({id}) => String(id)}
       /> 
-    </Default>
+    </>
   )
 }

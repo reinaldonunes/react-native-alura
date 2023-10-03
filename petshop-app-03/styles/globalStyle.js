@@ -13,3 +13,8 @@ export const colors = {
   light: '#fff',
   gray: '#C7C7C7',
 };
+
+export const customStyles = {
+  flex: 1,
+  backgroundColor: colors.purple
+}

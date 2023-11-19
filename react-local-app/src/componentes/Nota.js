@@ -1,14 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export function Nota({ description }) {
+export function Nota({ item, setSelectedNote }) {
   const categorias = {Pessoal: "#FF924F", Outros: "#00911F", Trabalho: "#2F71EB"}
-  const style = styleFunction(categorias["Pessoal"])
+  const estilos = styleFunction(categorias[item.category])
   
   return (
-    <View style={style.cartao}>
-      <Text style={style.texto} numberOfLines={5}>{description}</Text>
-    </View>
+    <TouchableOpacity style={estilos.cartao} onPress={() => setSelectedNote(item)}>
+      <Text style={estilos.titulo}>{item.title}</Text>
+      <Text style={estilos.categoria}>{item.category}</Text>
+      <Text style={estilos.texto} numberOfLines={5}>{item.description}</Text>
+    </TouchableOpacity>
   )
 }
 
